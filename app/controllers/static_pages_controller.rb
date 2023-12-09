@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def raid_shadow_legends
   end
+  
+  def eve_online
+  end
 end
