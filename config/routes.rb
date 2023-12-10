@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'champions/new'
   get "up" => "rails/health#show", as: :rails_health_check
 
   root 'static_pages#home'
