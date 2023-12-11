@@ -10,15 +10,5 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_09_174434) do
-  create_table "champions", force: :cascade do |t|
-    t.string "name"
-    t.string "faction"
-    t.string "rarity"
-    t.string "role"
-    t.string "affinity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 0) do
 end
