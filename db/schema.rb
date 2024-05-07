@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_19_120649) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_20_212805) do
+  create_table "affinities", force: :cascade do |t|
+    t.string "affinity_name"
+  end
+
   create_table "champions", force: :cascade do |t|
-    t.string "name"
-    t.string "faction"
-    t.string "rarity"
-    t.string "role"
-    t.string "affinity"
+    t.string "champion_name"
+    t.string "faction_id"
+    t.string "rarity_id"
+    t.string "role_id"
+    t.string "affinity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "factions", force: :cascade do |t|
+    t.string "faction_name"
+  end
+
+  create_table "rarities", force: :cascade do |t|
+    t.string "rarity_name"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role_name"
   end
 
 end
