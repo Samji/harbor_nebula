@@ -1,47 +1,53 @@
 <% provide(:title, 'RSL') %>
 <div class="center jumbotron">
- <h1>Raid</h1>
- <p>Home to the RSL!</p>
+  <h1>Raid</h1>
+  <p>Home to the RSL!</p>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Faction</th>
-      <th scope="col">Rarity</th>
-      <th scope="col">Role</th>
-			<th scope="col">Affinity</th>
-    </tr>
-  </thead>
-  <tbody>
-		<%= form_with(model: @champion, local: true) do |f| %>
-			<tr>
-				<td><%= f.text_field :champion_name, class: 'form-control' %></td>
-				<td><%= f.submit "Submit", class: "btn btn-primary" %></td>
-			</tr>
-		<% end %>
-		
-		<%= form_with(model: @faction, method: :post, local: true) do |f| %>
-			<tr>
-				<td><%= f.text_field :faction_name, class: 'form-control' %></td>
-				<td><%= f.submit "Submit", class: "btn btn-primary" %></td>
-			</tr>
-		<% end %>
-		<% @champions.each do |champion|%>
-    <tr>
-      <td><%= champion.champion_name %></td>
-      <td><%= champion.faction.faction_name %></td>
-      <td><%= champion.rarity.rarity_name %></td>
-			<td><%= champion.role.role_name %></td>
-			<td><%= champion.affinity.affinity_name %></td>
-    </tr>
-		<% end %>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Faction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form_with(model: @faction, local: true) do |form| %>
+          <tr>
+            <td><%= form.text_field :name, class: 'form-control' %></td>
+            <td><%= form.submit "Submit", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+
+        <%= @factions.each do |faction|%>
+          <tr>
+            <td><%= faction.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rarity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form_with(model: @rarity, local: true) do |form| %>
+          <tr>
+            <td><%= form.text_field :name, class: 'form-control' %></td>
+            <td><%= form.submit "Submit", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+
+        <%= @rarities.each do |rarity|%>
+          <tr>
+            <td><%= rarity.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

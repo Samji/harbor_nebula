@@ -12,29 +12,29 @@
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_20_212805) do
   create_table "affinities", force: :cascade do |t|
-    t.string "affinity_name"
+    t.string "name"
   end
 
   create_table "champions", force: :cascade do |t|
-    t.string "champion_name"
-    t.string "faction_id"
-    t.string "rarity_id"
-    t.string "role_id"
-    t.string "affinity_id"
+    t.string "name"
+    t.integer "faction_id"
+    t.integer "rarity_id"
+    t.integer "role_id"
+    t.integer "affinity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "factions", force: :cascade do |t|
-    t.string "faction_name"
+    t.string "name"
   end
 
   create_table "rarities", force: :cascade do |t|
-    t.string "rarity_name"
+    t.string "name"
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "role_name"
+    t.string "name"
   end
 
 end
