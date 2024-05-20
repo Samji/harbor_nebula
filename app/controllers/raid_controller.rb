@@ -21,7 +21,18 @@ class RaidController < ApplicationController
       redirect_to raid_path, notice: 'Faction was successfully created.'
     else
       @factions = Faction.all
-      render :new
+      logger.debug @faction.errors.full_messages.to_sentence
+      render :index
+    end
+
+    @affinity = Affinity.new(affinity_params)
+    if @affinity.save
+      @affinities = Affinity.all
+      redirect_to raid_path, notice: "Rarity was successfully created."
+    else
+      flash[:error] = "It... Didn't work? :D"
+      @affinities = Affinity.all
+      render :index, status: :unprocessable_entity
     end
   end
   
