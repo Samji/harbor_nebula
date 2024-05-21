@@ -3,35 +3,39 @@ require "test_helper"
 class ChampionTest < ActiveSupport::TestCase
   
   def setup
-    @champion = Champion.new(name: "Ronda", faction: "Banner Lords", rarity: "Legendary", role: "Attack", affinity: "Magic")
+    @faction = Faction.create!(name: "Banner Lords")
+    @rarity = Rarity.create!(name: "Legendary")
+    @role = Role.create!(name: "Attack")
+    @affinity = Affinity.create!(name: "Force")
+    @champion = Champion.new(name: "Ronda", faction: @faction, rarity: @rarity, role:  @role, affinity: @affinity)
   end
 
   test "should be valid" do
     assert @champion.valid?
   end
-  
+
   test "name should be present" do
-    @champion.name = "     "
+    @champion.name = " "
     assert_not @champion.valid?
   end
-    
-  test "faction should be present" do
-    @champion.faction = "     "
+
+  test "should have a faction" do
+    @champion.faction = nil
     assert_not @champion.valid?
   end
-  
-  test "rarity should be present" do
-    @champion.rarity = "     "
+
+  test "should have a rarity" do
+    @champion.rarity = nil
     assert_not @champion.valid?
   end
-  
-  test "role should be present" do
-    @champion.role = "     "
+
+  test "should have a role" do
+    @champion.role = nil
     assert_not @champion.valid?
   end
-  
-  test "affinity should be present" do
-    @champion.affinity = "     "
+
+  test "should have a affinity" do
+    @champion.affinity = nil
     assert_not @champion.valid?
   end
     
