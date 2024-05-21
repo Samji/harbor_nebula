@@ -12,29 +12,49 @@
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_20_212805) do
   create_table "affinities", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_affinities_on_name", unique: true
   end
 
   create_table "champions", force: :cascade do |t|
-    t.string "name"
-    t.integer "faction_id"
-    t.integer "rarity_id"
-    t.integer "role_id"
-    t.integer "affinity_id"
+    t.string "name", null: false
+    t.integer "faction_id", null: false
+    t.integer "rarity_id", null: false
+    t.integer "role_id", null: false
+    t.integer "affinity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["affinity_id"], name: "index_champions_on_affinity_id"
+    t.index ["faction_id"], name: "index_champions_on_faction_id"
+    t.index ["rarity_id"], name: "index_champions_on_rarity_id"
+    t.index ["role_id"], name: "index_champions_on_role_id"
   end
 
   create_table "factions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_factions_on_name", unique: true
   end
 
   create_table "rarities", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_rarities_on_name", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_roles_on_name", unique: true
   end
 
+  add_foreign_key "champions", "affinities"
+  add_foreign_key "champions", "factions"
+  add_foreign_key "champions", "rarities"
+  add_foreign_key "champions", "roles"
 end

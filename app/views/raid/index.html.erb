@@ -45,18 +45,6 @@
         </tr>
       </thead>
       <tbody>
-        <%= form_with(model: @rarity, local: true) do |form| %>
-          <tr>
-            <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Submit", class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-
-        <%= @rarities.each do |rarity|%>
-          <tr>
-            <td><%= rarity.name %></td>
-          </tr>
-        <% end %>
       </tbody>
     </table>
   </div>

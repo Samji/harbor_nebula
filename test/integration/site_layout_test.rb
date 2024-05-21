@@ -6,7 +6,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, count: 2
-   # assert_select "a[href=?]", rsl_path
-   # assert_select "a[href=?]", eve_path
+    assert_select "a[href=?]", raid_path, count: 2
+    # assert_select "a[href=?]", eve_path
   end
 end

@@ -1,9 +1,22 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# Create or find the faction
+banner_lords = Faction.find_or_create_by!(name: "Banner Lords")
+
+# Create or find the rarity
+legendary = Rarity.find_or_create_by!(name: "Legendary")
+
+# Create or find the affinity
+force = Affinity.find_or_create_by!(name: "Force")
+
+# Create or find the role
+attack = Role.find_or_create_by!(name: "Attack")
+
+# Create the champion with associations
+Champion.find_or_create_by!(
+    name: "Ronda",
+    faction: banner_lords,
+    rarity: legendary,
+    affinity: force,
+    role: attack
+)
