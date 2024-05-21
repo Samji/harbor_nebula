@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= form_with(model: @faction, url: raid_path, local: true) do |form| %>
+        <%= form_with(model: @faction, url: create_faction_path) do |form| %>
           <tr>
             <td><%= form.text_field :name, class: 'form-control' %></td>
             <td><%= form.submit "Create", class: "btn btn-primary" %></td>
@@ -45,6 +45,55 @@
         <% @rarities.each do |rarity|%>
           <tr>
             <td><%= rarity.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Affinity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form_with(model: @affinity, url: create_affinity_path, local: true) do |form| %>
+          <tr>
+            <td><%= form.text_field :name, class: 'form-control' %></td>
+            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+
+        <% @affinities.each do |affinity|%>
+          <tr>
+            <td><%= affinity.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form_with(model: @role, url: create_role_path, local: true) do |form| %>
+          <tr>
+            <td><%= form.text_field :name, class: 'form-control' %></td>
+            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+
+        <% @roles.each do |role|%>
+          <tr>
+            <td><%= role.name %></td>
           </tr>
         <% end %>
       </tbody>
