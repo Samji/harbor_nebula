@@ -12,20 +12,10 @@
         </tr>
       </thead>
       <tbody>
-        <%= form_with(model: @faction, local: true) do |form| %>
-          <tr>
-            <% if @faction.errors.any? %>
-              <td><%= pluralize(@faction.errors.count, "error") %></td>
-              <td>
-                <% @faction.errors.full_messages.each do |message| %>
-                  <%= message %>
-                <% end %>
-              </td>
-            <% end %>
-          </tr>
+        <%= form_with(model: @faction, url: raid_path, local: true) do |form| %>
           <tr>
             <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Submit", class: "btn btn-primary" %></td>
+            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
           </tr>
         <% end %>
 
