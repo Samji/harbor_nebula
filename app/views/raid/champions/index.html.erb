@@ -1,0 +1,26 @@
+<% provide(:title, 'RSL') %>
+<div class="center jumbotron">
+  <h1>Raid: Champions</h1>
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Faction</th>
+                <th scope="col">Rarity</th>
+                <th scope="col">Affinity</th>
+                <th scope="col">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @champions.each do |champion|%>
+            <tr>
+                <td><%= champion.name %></td>
+                <td><%= champion.faction.name %></td>
+                <td><%= champion.rarity.name %></td>
+                <td><%= champion.affinity.name %></td>
+                <td><%= champion.role.name %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>

@@ -1,3 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# empty
+one:
+  name: MyString
+  faction: one
+  rarity: one
+  affinity: one
+  role: one
+
+two:
+  name: MyString
+  faction: two
+  rarity: two
+  affinity: two
+  role: two

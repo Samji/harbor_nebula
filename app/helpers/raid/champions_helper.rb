@@ -1,0 +1,2 @@
+module Raid::ChampionsHelper
+end

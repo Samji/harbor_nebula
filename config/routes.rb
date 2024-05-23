@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   post '/raid/create_rarity', to: 'raid#create_rarity', as: 'create_rarity'
   post '/raid/create_affinity', to: 'raid#create_affinity', as: 'create_affinity'
   post '/raid/create_role', to: 'raid#create_role', as: 'create_role'
+
+  namespace :raid do
+    resources :champions, param: :name, only: [:index, :show, :create, :destroy]
+  end
 end
 
