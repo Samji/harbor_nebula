@@ -6,10 +6,45 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Faction</th>
-                <th scope="col">Rarity</th>
-                <th scope="col">Affinity</th>
-                <th scope="col">Role</th>
+                <th scope="col">
+                    Faction
+                    <%= form_with url: raid_champions_path, method: :get, local: true do |form| %>
+                        <% selected_faction_id = params.dig(:raid, :faction_id) %>
+                        <%= form.collection_select :faction_id, @factions, :id, :name, { prompt: selected_faction_id.present? ? @factions.find(selected_faction_id).name : "Select Faction" }, id: "faction-dropdown" %>
+                        <%= form.hidden_field :_destroy, value: true %>
+                        <%= form.submit "Clear Filter", class: "btn btn-secondary btn-sm ml-1" %>
+                        <% if params[:raid].present? && params[:raid][:faction_id].present? %>
+                        <%= link_to "x", raid_champions_path, class: "btn btn-danger btn-sm ml-1" %>
+                        <% end %>
+                    <% end %>
+                </th>
+                <th scope="col">
+                    Rarity
+                    <%= form_with url: raid_champions_path, method: :get, local: true do |form| %>
+                        <%= form.collection_select :rarity_id, @rarities, :id, :name,
+                                                    {prompt: "select"}, id: "rarity-dropdown" %>
+                        <%= form.hidden_field :_destroy, value: true %>
+                        <%= form.submit "Clear", class: "btn btn-secondary" %>
+                    <% end %>
+                </th>
+                <th scope="col">
+                    Affinity
+                    <%= form_with url: raid_champions_path, method: :get, local: true do |form| %>
+                        <%= form.collection_select :affinity_id, @affinities, :id, :name,
+                                                    {prompt: "select"}, id: "affinity-dropdown" %>
+                        <%= form.hidden_field :_destroy, value: true %>
+                        <%= form.submit "Clear", class: "btn btn-secondary" %>
+                    <% end %>
+                </th>
+                <th scope="col">
+                    Role
+                    <%= form_with url: raid_champions_path, method: :get, local: true do |form| %>
+                        <%= form.collection_select :role_id, @roles, :id, :name,
+                                                    {prompt: "select"}, id: "role-dropdown" %>
+                        <%= form.hidden_field :_destroy, value: true %>
+                        <%= form.submit "Clear", class: "btn btn-secondary" %>
+                    <% end %>
+                </th>
             </tr>
         </thead>
         <tbody>
