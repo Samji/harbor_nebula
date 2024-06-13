@@ -315,3 +315,51 @@ span.image {
   max-height: 200px; /* Set the maximum height here */
   overflow-y: auto; /* Enable vertical scrollbar */
 }
+
+.list-header {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  width: 100%;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+
+.list-header .list-header-title, .list-header .list-header-buttons {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.list-header .list-header-title {
+  justify-content: flex-start;
+}
+
+.list-header .dataTables_filter {
+  margin-right: 24px;
+  
+}
+
+.list-header .dataTables_info {
+  white-space: nowrap;
+}
+
+.list-header .list-header-buttons {
+  justify-content: flex-end;
+}
+
+
+
+.dataTables_filter {
+  /// TODO refer to jamfcloud use a calc to workout the margin
+  margin-right: 24px;
+}
+
+.dataTables_filter input {
+  border: 2 solid yellow;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 34px;
+  width: 160px;
+  padding: 5px 33px 5px 30px;
+  box-shadow: none;
+}

@@ -2,6 +2,33 @@
 <div class="center jumbotron">
   <h1>Raid: Champions</h1>
 </div>
+<div class="list-header">
+    <div class="dataTables_filter">
+        <label>
+            <!-- TODO: add a q mark in a ::before -->
+            <%= form_with(url: raid_champions_path, method: "get") do |form| %>
+                <%= form.text_field :search, id: "search-input", placeholder: "Filter Results" %>
+            <% end %>
+        </label>
+    </div>
+    <div class="dataTables_info">
+        <span class="raid-label">
+            <span class="bold-entries">1</span>
+             - 
+            <span class="bold-entries">3</span>
+             of 
+            <span class="total-entries">3</span>
+        </span>
+         (filtered from 1,219 total entries)
+    </div>
+    <section class="list-header">
+        <div class="list-header-buttons">
+            <!-- TODO: add a ::before to replace the + -->
+            <%= link_to '+ New', raid_champions_path %>
+        </div>
+    </section>
+</div>
+<div class="table-wrapper">
     <table class="table">
         <thead>
             <tr>
@@ -14,7 +41,7 @@
                         <%= form.hidden_field :_destroy, value: true %>
                         <%= form.submit "Clear Filter", class: "btn btn-secondary btn-sm ml-1" %>
                         <% if params[:raid].present? && params[:raid][:faction_id].present? %>
-                        <%= link_to "x", raid_champions_path, class: "btn btn-danger btn-sm ml-1" %>
+                            <%= link_to "x", raid_champions_path, class: "btn btn-danger btn-sm ml-1" %>
                         <% end %>
                     <% end %>
                 </th>
@@ -59,3 +86,4 @@
         <% end %>
         </tbody>
     </table>
+</div>
