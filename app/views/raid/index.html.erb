@@ -5,98 +5,94 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Faction</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form_with(model: @faction, url: create_faction_path) do |form| %>
-          <tr>
-            <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-
-        <% @factions.each do |faction|%>
-          <tr>
-            <td><%= faction.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="form-container">
+      <h3>Faction</h3>
+      <%= form_with(model: @faction, url: create_faction_path, html: { class: "" }) do |form| %>
+        <div class="form-group mb-2 mr-2">
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <%= form.submit "Create", class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <tbody>
+          <% @factions.each do |faction|%>
+            <tr>
+              <td><%= faction.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div> 
   </div>
   <div class="col-md-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Rarity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form_with(model: @rarity, url: create_rarity_path, local: true) do |form| %>
-          <tr>
-            <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-
-        <% @rarities.each do |rarity|%>
-          <tr>
-            <td><%= rarity.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="form-container">
+      <h3>Rarity</h3>
+      <%= form_with(model: @rarity, url: create_rarity_path, html: { class: "" }) do |form| %>
+        <div class="form-group mb-2 mr-2">
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <%= form.submit "Create", class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <tbody>
+          <% @rarities.each do |rarity|%>
+            <tr>
+              <td><%= rarity.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Affinity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form_with(model: @affinity, url: create_affinity_path, local: true) do |form| %>
-          <tr>
-            <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-
-        <% @affinities.each do |affinity|%>
-          <tr>
-            <td><%= affinity.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="form-container">
+      <h3>Affinity</h3>
+      <%= form_with(model: @affinity, url: create_affinity_path, html: { class: "" }) do |form| %>
+        <div class="form-group mb-2 mr-2">
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <%= form.submit "Create", class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <tbody>
+          <% @affinities.each do |affinity|%>
+            <tr>
+              <td><%= affinity.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="col-md-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form_with(model: @role, url: create_role_path, local: true) do |form| %>
-          <tr>
-            <td><%= form.text_field :name, class: 'form-control' %></td>
-            <td><%= form.submit "Create", class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-
-        <% @roles.each do |role|%>
-          <tr>
-            <td><%= role.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="form-container">
+      <h3>Role</h3>
+      <%= form_with(model: @role, url: create_role_path, html: { class: "" }) do |form| %>
+        <div class="form-group mb-2 mr-2">
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <%= form.submit "Create", class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <tbody>
+          <% @roles.each do |role|%>
+            <tr>
+              <td><%= role.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

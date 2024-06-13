@@ -310,3 +310,8 @@ span.image {
     border: 0;
   }
 }
+
+.table-container {
+  max-height: 200px; /* Set the maximum height here */
+  overflow-y: auto; /* Enable vertical scrollbar */
+}
