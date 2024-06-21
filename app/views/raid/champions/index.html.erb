@@ -24,7 +24,7 @@
     <section class="list-header">
         <div class="list-header-buttons">
             <!-- TODO: add a ::before to replace the + -->
-            <%= link_to '+ New', raid_champions_path %>
+            <a><i class="fa-solid fa-plus show-new-champion-form"></i></a>
         </div>
     </section>
 </div>
@@ -75,15 +75,27 @@
             </tr>
         </thead>
         <tbody>
-        <% @champions.each do |champion|%>
-            <tr>
-                <td><%= champion.name %></td>
-                <td><%= champion.faction.name %></td>
-                <td><%= champion.rarity.name %></td>
-                <td><%= champion.affinity.name %></td>
-                <td><%= champion.role.name %></td>
+            <!-- Hidden form row -->
+            <tr id="new-champion-form-row" style="">
+                <%= form_with model: Champion.new, url: raid_champions_path, local: true do |form| %>
+                    <td><%= form.text_field :name %></td>
+                    <td><%= form.collection_select :faction_id, Faction.all, :id, :name, {prompt: "select"} %></td>
+                    <td><%= form.collection_select :rarity_id, Rarity.all, :id, :name, {prompt: "select"} %></td>
+                    <td><%= form.collection_select :affinity_id, Affinity.all, :id, :name, {prompt: "select"} %></td>
+                    <td><%= form.collection_select :role_id, Role.all, :id, :name, {prompt: "select"} %></td>
+                    <td><%= form.submit 'Create' %></td>
+                <% end %>
             </tr>
-        <% end %>
+
+            <% @champions.each do |champion|%>
+                <tr>
+                    <td><%= champion.name %></td>
+                    <td><%= champion.faction.name %></td>
+                    <td><%= champion.rarity.name %></td>
+                    <td><%= champion.affinity.name %></td>
+                    <td><%= champion.role.name %></td>
+                </tr>
+            <% end %>
         </tbody>
     </table>
 </div>

@@ -11,4 +11,17 @@ class Raid::ChampionsController < ApplicationController
         @champions = @champions.where(affinity_id: params[:affinity_id]) if params[:affinity_id].present?
         @champions = @champions.where(role_id: params[:role_id]) if params[:role_id].present?
     end
+
+    def create
+        @champion = Champion.new(champion_params)
+        if @champion.save
+            redirect_to raid_champion_path
+        end
+    end
+
+    private
+
+    def champion_params
+        params.require(:champion).permit(:name, :faction_id, :rarity_id, :affinity_id, :role_id)
+    end
 end

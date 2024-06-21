@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "custom/menu"
+import "custom/toggle_form"
 
 document.addEventListener("turbo:load", function() {
     // Add event listeners for form submissions and dropdown interactions
